@@ -31,12 +31,12 @@ buildctl build \
     --ssh default
 ```
 
-![Alt text](/build1.png "First build")
+![Alt text](/build_1.png "First build")
 
 The error "importing cache manifest from localhost:5000/node-app:buildcache" can be ignored, because we don't have a cache in the registry at the moment.
 
 After that command, we can remove all local buildkit cache and try to run this build again.
 
-![Alt text](/build2.png "Second build")
+![Alt text](/build_2.png "Second build")
 
 As you can see buildkit successfully imported the cache from the local registry and lasted about 40 seconds less.
