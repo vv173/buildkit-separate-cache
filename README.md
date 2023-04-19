@@ -8,6 +8,8 @@ To be able to push images on a local registry using buildctl we need to add a co
 docker run --rm --privileged -d -v $(pwd):/etc/buildkit --network=host --name buildkit moby/buildkit --config /etc/buildkit/buildkitd.toml
 ```
 
+![Alt text](/buildkit_daemon.png "Running buildkit daemon and local registry")
+
 Now we can start our local registry:
 
 ```
@@ -29,8 +31,12 @@ buildctl build \
     --ssh default
 ```
 
+![Alt text](/build1.png "First build")
+
 The error "importing cache manifest from localhost:5000/node-app:buildcache" can be ignored, because we don't have a cache in the registry at the moment.
 
 After that command, we can remove all local buildkit cache and try to run this build again.
+
+![Alt text](/build2.png "Second build")
 
 As you can see buildkit successfully imported the cache from the local registry and lasted about 40 seconds less.
